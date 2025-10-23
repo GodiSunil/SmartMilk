@@ -1,0 +1,38 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Itim&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    font-family: 'Poppins', sans-serif;
+  }
+  
+  body {
+    background-color: #1C3A51;
+    margin: 0;
+    padding: 0;
+  }
+  
+  * {
+    box-sizing: border-box;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-milkyway-blue text-white font-poppins rounded-full px-6 py-3 shadow-button hover:shadow-lg transition-all duration-300 hover:scale-105;
+  }
+  
+  .btn-secondary {
+    @apply bg-white text-black font-poppins rounded-full px-6 py-3 hover:bg-gray-50 transition-all duration-300 hover:scale-105;
+  }
+  
+  .nav-link {
+    @apply text-white font-poppins font-normal hover:text-milkyway-blue transition-colors duration-300;
+  }
+  
+  .nav-link.active {
+    @apply text-milkyway-blue;
+  }
+}
