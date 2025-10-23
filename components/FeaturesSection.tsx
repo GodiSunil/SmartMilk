@@ -2,6 +2,10 @@
 
 import Image from 'next/image';
 
+const Dot = () => (
+  <div className="w-2.5 h-2.5 rounded-full bg-milkyway-blue flex-shrink-0 animate-pulse"></div>
+);
+
 const FeaturesSection = () => {
   const statisticCards = [
     {
@@ -37,10 +41,7 @@ const FeaturesSection = () => {
     <section 
       className="relative w-full py-20 px-5 lg:px-20"
       style={{
-        background: `
-          linear-gradient(180deg, #292d33 0%, #292e33 50%, #292d32 100%),
-          radial-gradient(ellipse at bottom left, #273440 0%, transparent 70%)
-        `
+        background: 'linear-gradient(90deg, #2a2e33 0%, #253b4b 100%)'
       }}
     >
       {/* Top Label */}
@@ -76,7 +77,7 @@ const FeaturesSection = () => {
                   {block.subtext}
                 </p>
               </div>
-              <div className="w-2 h-2 rounded-full bg-white/50 flex-shrink-0"></div>
+              <Dot />
             </div>
           ))}
           {contentBlocks.map((block, index) => (
@@ -89,7 +90,7 @@ const FeaturesSection = () => {
                   {block.subtext}
                 </p>
               </div>
-              <div className="w-2 h-2 rounded-full bg-white/50 flex-shrink-0"></div>
+              <Dot />
             </div>
           ))}
           {contentBlocks.map((block, index) => (
@@ -102,23 +103,25 @@ const FeaturesSection = () => {
                   {block.subtext}
                 </p>
               </div>
-              <div className="w-2 h-2 rounded-full bg-white/50 flex-shrink-0"></div>
+              <Dot />
             </div>
           ))}
         </div>
 
         {/* Center Mobile Image */}
-        <div className="lg:order-2 order-1">
+        <div className="lg:order-2 order-1 mt-8 lg:mt-12">
           <div className="relative">
             <Image
-              src="/assets/iphone15-1.png"
+              src="/assets/iphone 14.png"
               alt="Milkyway App Screenshot"
-              width={300}
-              height={600}
-              className="w-auto h-[500px] lg:h-[600px] drop-shadow-2xl"
+              width={400}
+              height={800}
+              className="w-auto h-[650px] lg:h-[800px] drop-shadow-2xl"
               style={{
-                filter: 'drop-shadow(0 25px 50px rgba(0, 0, 0, 0.25))'
+                filter: 'drop-shadow(0 25px 50px rgba(0, 0, 0, 0.3))',
+                transform: 'translateY(30px)'
               }}
+              priority
             />
           </div>
         </div>
@@ -127,7 +130,7 @@ const FeaturesSection = () => {
         <div className="flex flex-col gap-8 lg:gap-12 text-left lg:order-3 order-3">
           {contentBlocks.map((block, index) => (
             <div key={index} className="flex items-center justify-start gap-4">
-              <div className="w-2 h-2 rounded-full bg-white/50 flex-shrink-0"></div>
+              <Dot />
               <div className="flex flex-col items-start">
                 <h3 className="text-white font-poppins font-semibold text-lg lg:text-[22px] leading-[32px] capitalize">
                   {block.heading}
@@ -140,7 +143,7 @@ const FeaturesSection = () => {
           ))}
           {contentBlocks.map((block, index) => (
             <div key={`second-${index}`} className="flex items-center justify-start gap-4">
-              <div className="w-2 h-2 rounded-full bg-white/50 flex-shrink-0"></div>
+              <Dot />
               <div className="flex flex-col items-start">
                 <h3 className="text-white font-poppins font-semibold text-lg lg:text-[22px] leading-[32px] capitalize">
                   {block.heading}
@@ -153,7 +156,7 @@ const FeaturesSection = () => {
           ))}
           {contentBlocks.map((block, index) => (
             <div key={`third-${index}`} className="flex items-center justify-start gap-4">
-              <div className="w-2 h-2 rounded-full bg-white/50 flex-shrink-0"></div>
+              <Dot />
               <div className="flex flex-col items-start">
                 <h3 className="text-white font-poppins font-semibold text-lg lg:text-[22px] leading-[32px] capitalize">
                   {block.heading}
@@ -167,39 +170,46 @@ const FeaturesSection = () => {
         </div>
       </div>
 
-      {/* App Download Heading */}
-      <div className="text-center mb-12">
-        <h2 
-          className="text-white font-poppins font-bold text-4xl lg:text-[48px] leading-[58px] capitalize"
-        >
-          App Download
-        </h2>
-      </div>
-
-      {/* Statistic Cards */}
-      <div className="flex flex-col sm:flex-row flex-wrap justify-center items-center gap-6 lg:gap-10">
-        {statisticCards.map((card, index) => (
-          <div
-            key={index}
-            className="w-[260px] h-[100px] rounded-[10px] bg-[#202329] shadow-[0px_4px_30px_0px_rgba(0,0,0,0.05)] flex flex-col items-center justify-center gap-1"
+      {/* App Download Section */}
+      <div className="text-center -mt-64">
+        <div className="mb-6">
+          <h2 
+            className="text-white font-poppins font-bold text-4xl lg:text-[48px] leading-[58px] capitalize"
           >
-            <div className="mb-2">
-              <Image
-                src={card.icon}
-                alt={`${card.label} icon`}
-                width={24}
-                height={24}
-                className="w-6 h-6"
-              />
+            App Download
+          </h2>
+        </div>
+      
+        {/* Statistic Cards */}
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 w-full max-w-6xl mx-auto px-4 -mt-4">
+          {statisticCards.map((card, index) => (
+            <div
+              key={index}
+              className="bg-transparent rounded-2xl p-6 border border-white/5 hover:border-white/10 transition-all duration-300 relative h-full min-h-[180px] flex flex-col justify-center"
+            >
+              <div className="absolute top-4 right-4 w-14 h-14 rounded-full bg-milkyway-blue/10 flex items-center justify-center">
+                <Image
+                  src={card.icon}
+                  alt=""
+                  width={32}
+                  height={32}
+                  className="w-8 h-8 object-contain"
+                />
+              </div>
+              <div className="mt-2">
+                <div className="text-milkyway-blue text-4xl md:text-5xl font-bold mb-1">
+                  {card.number}
+                  {index < 2 ? (
+                    <span className="text-2xl md:text-3xl text-milkyway-blue/80">+</span>
+                  ) : ''}
+                </div>
+                <div className="text-white/80 text-base font-medium">
+                  {card.label}
+                </div>
+              </div>
             </div>
-            <div className="text-white font-poppins font-semibold text-[38px] leading-[48px]">
-              {card.number}
-            </div>
-            <div className="text-white font-poppins font-normal text-base leading-[22px]">
-              {card.label}
-            </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
     </section>
   );
