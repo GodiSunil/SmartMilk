@@ -4,30 +4,30 @@ import Image from 'next/image'
 
 const ContactSection = () => {
   return (
-    <section className="relative py-20 bg-milkyway-dark overflow-hidden">
-      {/* Background Images */}
-      <div className="absolute inset-0">
-        {/* Milk bottle image on the left */}
-        <div className="absolute left-0 top-1/2 transform -translate-y-1/2 z-10 hidden lg:block">
-          <Image 
-            src="/assets/milk.png" 
-            alt="Milk Bottle" 
-            width={300} 
-            height={400}
-            className="w-auto h-[400px] lg:h-[500px] object-contain"
-          />
-        </div>
-        
-        {/* Frame1 image at the bottom */}
-        <div className="absolute bottom-0 left-0 right-0 w-full z-0">
-          <Image 
-            src="/assets/frame1.png" 
-            alt="Frame Design" 
-            width={1920} 
-            height={200}
-            className="w-full h-auto object-cover"
-          />
-        </div>
+    <section className="relative py-20 overflow-hidden min-h-screen">
+      {/* Full-screen milk bottle background */}
+      <div className="absolute inset-0 z-0">
+        <Image 
+          src="/assets/image 300.png" 
+          alt="Milk Bottle Background" 
+          fill
+          className="object-cover"
+          priority
+        />
+        {/* Light overlay for better text visibility */}
+        <div className="absolute inset-0 bg-gradient-to-r from-black/20 via-black/10 to-black/20"></div>
+      </div>
+      
+      {/* Frame1 image at the bottom */}
+      <div className="absolute bottom-0 left-0 right-0 w-full z-10 h-[150px] sm:h-[180px]">
+        <Image 
+          src="/assets/frame1.png" 
+          alt="Frame Design" 
+          width={1920} 
+          height={180}
+          className="w-full h-full object-cover object-bottom"
+          style={{ objectFit: 'cover', objectPosition: 'bottom' }}
+        />
       </div>
 
       {/* Contact Form Container */}
