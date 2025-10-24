@@ -171,7 +171,7 @@ const FeaturesSection = () => {
       </div>
 
       {/* App Download Section */}
-      <div className="text-center -mt-64">
+      <div className="text-center md:-mt-64">
         <div className="mb-6">
           <h2 
             className="text-white font-poppins font-bold text-4xl lg:text-[48px] leading-[58px] capitalize"
