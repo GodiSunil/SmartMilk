@@ -8,6 +8,17 @@ const AppScreenshotsSection = () => {
   const [isHovered, setIsHovered] = useState(false)
   const [touchStart, setTouchStart] = useState(0)
   const [touchEnd, setTouchEnd] = useState(0)
+  const [isClient, setIsClient] = useState(false)
+  const [windowWidth, setWindowWidth] = useState(1024) // Default to a reasonable value
+
+  useEffect(() => {
+    setIsClient(true)
+    setWindowWidth(window.innerWidth)
+    
+    const handleResize = () => setWindowWidth(window.innerWidth)
+    window.addEventListener('resize', handleResize)
+    return () => window.removeEventListener('resize', handleResize)
+  }, [])
 
   const screenshots = [
     { id: 1, src: '/assets/image2.png', alt: 'Welcome Screen' },
@@ -107,7 +118,7 @@ const AppScreenshotsSection = () => {
                     const isCentered = distance === 0
                     
                     // Calculate position relative to center
-                    const offset = (index - activeSlide) * (window.innerWidth < 768 ? 180 : 280)
+                    const offset = (index - activeSlide) * (windowWidth < 768 ? 180 : 280)
                     
                     // Calculate visual properties based on distance from center
                     let scale = 1
@@ -189,7 +200,7 @@ const AppScreenshotsSection = () => {
                                   alt={screenshot.alt}
                                   fill
                                   className="object-cover"
-                                  priority={Math.abs(index - activeSlide) <= 1}
+                                  priority={isClient && Math.abs(index - activeSlide) <= 1}
                                 />
                               </div>
                             </div>
