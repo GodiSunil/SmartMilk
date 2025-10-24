@@ -112,7 +112,7 @@ const FeaturesSection = () => {
         <div className="lg:order-2 order-1 mt-8 lg:mt-12">
           <div className="relative">
             <Image
-              src="/assets/iphone 14.png"
+              src="/assets/Iphone 14.png"
               alt="Milkyway App Screenshot"
               width={400}
               height={800}

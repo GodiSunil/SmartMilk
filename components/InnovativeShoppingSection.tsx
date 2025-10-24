@@ -45,7 +45,7 @@ export default function InnovativeShoppingSection() {
             <div className="relative">
               {/* Phone Image */}
               <img 
-                src="/assets/iphone-15.png" 
+                src="/assets/Iphone-15.png" 
                 alt="App Preview on iPhone" 
                 className="max-w-[280px] sm:max-w-[320px] lg:max-w-[380px] drop-shadow-2xl z-10 relative" 
               />
