@@ -78,7 +78,7 @@ const AppScreenshotsSection = () => {
       {/* Upper Design Image */}
       <div className="absolute top-0 left-0 w-full z-10">
         <Image
-          src="/assets/down design.png"
+          src="/assets/upper design.png"
           alt=""
           width={1920}
           height={200}
@@ -238,7 +238,7 @@ const AppScreenshotsSection = () => {
       {/* Bottom Design Image */}
       <div className="absolute bottom-[40px] left-0 w-full z-10 transform rotate-180">
         <Image
-          src="/assets/upper design.png"
+          src="/assets/down design.png"
           alt=""
           width={1920}
           height={200}
